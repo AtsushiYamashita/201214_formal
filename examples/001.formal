@@ -1,0 +1,79 @@
+# 001.formal
+
+@.target 
+- formal.201214
+
+## Comment
+
+### Line comment
+
+// You can use '//(double-slash)' for removable comment
+// You should use '#(sharp)' for un-removable on head
+
+### Block comment
+
+"""
+You can use '"""(three double-quatation)' .
+In this case, you should mark at line head.
+"""
+
+## Relations
+
+### Like a tree
+
+As tree  << local, child, element, key
+  - local
+  - child
+  - element
+  - key as 'key of data'
+
+"""
+These arguments can be short hand.
+
+As #tree << ,,,key
+  - local
+  - child
+  - element
+  - key as 'key of data'
+"""
+
+
+### Indexed array
+
+As #array << element, skiped, next, tail, ...
+  0. element
+  2. skiped
+  -. next as 'fill as next'
+  -. ... // expand
+  -0. tail
+
+### Meta structure
+
+As #structure (keys:array, values:array, name:string)
+  - name
+  - 'keys'
+    -. array@keys
+  - 'values'
+    -. array@values
+
+
+## Entities
+
+
+In .global
+  tree << null, , 'element', 'key'
+
+As keys
+  array
+    <<<
+    'a'
+    'b'
+    'c'
+    <<<
+
+As values
+  array << 0, 1, 2
+
+As @.global.child
+  structure << @keys, @values, 'child map'
+
